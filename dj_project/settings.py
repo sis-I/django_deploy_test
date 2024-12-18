@@ -69,16 +69,31 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'dj_project.wsgi.app'
+WSGI_APPLICATION = 'dj_project.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get("DB_NAME"),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'POST': os.environ.get("DB_POST")
+
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'OPTIONS': {
+        #   'service': 'my_service',
+        #   'passfile': '.my_pgpass'
+        # }
     }
 }
 

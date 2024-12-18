@@ -11,3 +11,7 @@ env
 # sqlite db
 db.sqlite3
 .vercel
+
+#postgresql
+my_service.conf
+.my_pgpass
