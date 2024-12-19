@@ -83,10 +83,15 @@ load_dotenv()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get("DB_NAME"),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
+        'NAME': 'neondb',
+        'USER': 'neondb_owner',
+        'PASSWORD': 'joaK7L8ybSNE',
+        'HOST': 'ep-curly-sky-a26pjcpp-pooler.eu-central-1.aws.neon.tech',
+        # 'PORT': '5432',
+        # 'NAME': os.environ.get("DB_NAME"),
+        # 'USER': os.environ.get('DB_USER'),
+        # 'PASSWORD': os.environ.get('DB_PASSWORD'),
+        # 'HOST': os.environ.get('DB_HOST'),
         # 'PORT': os.environ.get("DB_PORT")
 
         # 'ENGINE': 'django.db.backends.postgresql',
