@@ -86,16 +86,11 @@ PGDB = urlparse(getenv('DATABASE_URL'))
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'neondb',
-        'USER': 'neondb_owner',
-        'PASSWORD': 'joaK7L8ybSNE',
-        'HOST': 'ep-curly-sky-a26pjcpp-pooler.eu-central-1.aws.neon.tech',
-        'PORT': 5432,
-        # 'NAME': PGDB.path[1:], #getenv("DB_NAME"),
-        # 'USER': PGDB.username, #getenv('DB_USER'),
-        # 'PASSWORD': PGDB.password, #getenv('DB_PASSWORD'),
-        # 'HOST': PGDB.hostname, #getenv('DB_HOST'),
-        # 'PORT': int(getenv("DB_PORT", "5432")),
+        'NAME': PGDB.path[1:], #getenv("DB_NAME"),
+        'USER': PGDB.username, #getenv('DB_USER'),
+        'PASSWORD': PGDB.password, #getenv('DB_PASSWORD'),
+        'HOST': PGDB.hostname, #getenv('DB_HOST'),
+        'PORT': int(getenv("DB_PORT", "5432")),
         # 'OPTIONS': {
         #   'sslmode': 'require',
         # }
