@@ -75,10 +75,13 @@ WSGI_APPLICATION = 'dj_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-import os
+from os import getenv
 from dotenv import load_dotenv
 
 load_dotenv()
+from urllib.parse import urlparse
+PGDB = urlparse(getenv('DATABASE_URL'))
+
 
 DATABASES = {
     'default': {
@@ -87,17 +90,14 @@ DATABASES = {
         'USER': 'neondb_owner',
         'PASSWORD': 'joaK7L8ybSNE',
         'HOST': 'ep-curly-sky-a26pjcpp-pooler.eu-central-1.aws.neon.tech',
-        # 'PORT': '5432',
-        # 'NAME': os.environ.get("DB_NAME"),
-        # 'USER': os.environ.get('DB_USER'),
-        # 'PASSWORD': os.environ.get('DB_PASSWORD'),
-        # 'HOST': os.environ.get('DB_HOST'),
-        # 'PORT': os.environ.get("DB_PORT")
-
-        # 'ENGINE': 'django.db.backends.postgresql',
+        'PORT': 5432,
+        # 'NAME': PGDB.path[1:], #getenv("DB_NAME"),
+        # 'USER': PGDB.username, #getenv('DB_USER'),
+        # 'PASSWORD': PGDB.password, #getenv('DB_PASSWORD'),
+        # 'HOST': PGDB.hostname, #getenv('DB_HOST'),
+        # 'PORT': int(getenv("DB_PORT", "5432")),
         # 'OPTIONS': {
-        #   'service': 'my_service',
-        #   'passfile': '.my_pgpass'
+        #   'sslmode': 'require',
         # }
     }
 }
